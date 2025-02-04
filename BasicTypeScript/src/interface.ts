@@ -18,6 +18,7 @@ const deepWork:Book = {
         return `random message ${message}`
     }
 }
+// extends
 interface Person {
     name:string;
     getDetails():string
@@ -25,4 +26,25 @@ interface Person {
 interface DogOwner {
     dogName:string;
     getDogDetails():string
+}
+interface Person {
+    age:number
+}
+interface Employee extends Person{
+    employeeId:number
+}
+const person:Person = {
+    name:"seba",
+    getDetails(){
+        return 'string'
+    },
+    age:56
+}
+const employee :Employee= {
+    employeeId:6666,
+    age:36,
+    name:'seba',
+    getDetails(){
+        return 'fff'
+    }
 }

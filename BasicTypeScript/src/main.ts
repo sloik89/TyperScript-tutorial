@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 
 import { setupCounter } from './counter.ts'
 import './interface.ts'
+import './types.ts'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
