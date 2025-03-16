@@ -105,3 +105,38 @@ try {
   }
 }
 ```
+
+### Type Predicate
+
+A type predicate is a function whose return type is a special kind of type that ca be used to narrow down types within conditional blocks.
+
+```ts
+type Student = {
+  name: string;
+  study: () => void;
+};
+type User = {
+  name: string;
+  login: () => void;
+};
+type Person = Student | User;
+const randomPerson = (): Person => {
+  return Math.random() > 0.5
+    ? { name: "john", study: () => console.log("Studdying") }
+    : { name: "mary", study: () => console.log("Logging in") };
+};
+const person = randomPerson();
+console.log(person);
+function isStudent(person: Person): person is Student {
+  return (person as Student).study !== undefined;
+}
+if (isStudent(person)) {
+  person.study();
+} else {
+  person.login();
+}
+```
+
+### Discriminated Unions and exhaustive check using the never type
+
+A discriminated union in TypeScript is a type tha can be one of several differnt types, each identified by a unique literal property (the discriminator), allowing for type-safe handling of each possible variant
